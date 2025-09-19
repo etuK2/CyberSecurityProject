@@ -1,0 +1,8 @@
+<h2>Edit Note</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.content.label_tag }}<br>
+  {{ form.content }}<br><br>
+  <button type="submit">Save Changes</button>
+</form>
+<p><a href="{% url 'main_page' %}">Back to main page</a></p>

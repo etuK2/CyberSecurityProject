@@ -1,0 +1,26 @@
+<h2>Your Notes</h2>
+<form method="get" style="margin-bottom: 20px;">
+  <input type="text" name="q" value="{{ query }}" placeholder="Search notes...">
+  <button type="submit">Search</button>
+</form>
+<form method="post">
+  {% csrf_token %}
+  {{ form.content.label_tag }}<br>
+  {{ form.content }}<br><br>
+  <button type="submit">Add Note</button>
+</form>
+<hr>
+<ul>
+  {% for note in notes %}
+    <li>{{ note.content }} <small>({{ note.created_at|date:'Y-m-d H:i' }})</small>
+      <a href="{% url 'edit_note' note.id %}">Edit</a>
+      <form action="{% url 'delete_note' note.id %}" method="post" style="display:inline;">
+        <!-- CSRF token is missing here -->
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  {% empty %}
+    <li>No notes yet.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'logout' %}">Logout</a>
