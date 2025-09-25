@@ -141,6 +141,6 @@ LOGOUT_REDIRECT_URL = 'login'
 # OWASP A07:2021 - Identification & Authentication Failures (FLAW)
 # Flaw: User sessions that do not expire on browser close
 # FIX: Uncomment the next line to expire sessions on browser close
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
